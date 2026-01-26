@@ -18,3 +18,6 @@ Thumbs.db
 
 # sublime phpintel plugin
 /.phpintel
+
+# PHPUnit cache
+.phpunit.cache
