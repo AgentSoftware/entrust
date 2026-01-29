@@ -35,10 +35,10 @@ class EntrustRole
 	 * @param  $roles
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next, $roles)
+	public function handle($request, Closure $next, $roles = null)
 	{
 		if (!is_array($roles)) {
-			$roles = explode(self::DELIMITER, $roles);
+			$roles = explode(self::DELIMITER, $roles ?? '');
 		}
 
 		if ($this->auth->guest() || !$request->user()->hasRole($roles)) {

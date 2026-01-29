@@ -37,14 +37,14 @@ class EntrustAbility
 	 * @param bool $validateAll
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next, $roles, $permissions, $validateAll = false)
+	public function handle($request, Closure $next, $roles = null, $permissions = null, $validateAll = false)
 	{
 		if (!is_array($roles)) {
-			$roles = explode(self::DELIMITER, $roles);
+			$roles = explode(self::DELIMITER, $roles ?? '');
 		}
 
 		if (!is_array($permissions)) {
-			$permissions = explode(self::DELIMITER, $permissions);
+			$permissions = explode(self::DELIMITER, $permissions ?? '');
 		}
 
 		if (!is_bool($validateAll)) {
